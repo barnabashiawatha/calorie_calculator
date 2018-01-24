@@ -1,15 +1,18 @@
 /*
  * Container that consists lists and methods to calculate values of library items.
  */
-package calorie.dietcontainer;
+package calorie.fx;
 
 import calorie.CommandAction;
+import javafx.beans.property.ListProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
-public class DietContainer {
+public class DietContainerFX {
     private String tableName;
-    private ArrayList<String> nameList = new ArrayList<>();
+    private ObservableList<String> nameList = FXCollections.observableArrayList();
     private ArrayList<Float> proteinAbsoluteList = new ArrayList<>();
     private ArrayList<Float> fatAbsoluteList = new ArrayList<>();
     private ArrayList<Float> carbohydratesAbsoluteList = new ArrayList<>();
@@ -33,8 +36,8 @@ public class DietContainer {
      * Creates a group of tables. Actually creates a DietContainer that consists total elements of each given table.
      * @param containers - tables needed to by united into a group.
      */
-    public DietContainer(DietContainer... containers) {
-        for (DietContainer container : containers) {
+    public DietContainerFX(DietContainerFX... containers) {
+        for (DietContainerFX container : containers) {
             this.nameList.addAll(container.nameList);
             this.proteinAbsoluteList.addAll(container.proteinAbsoluteList);
             this.fatAbsoluteList.addAll(container.fatAbsoluteList);
@@ -205,7 +208,7 @@ public class DietContainer {
         calculateTotal();
     }
 
-    //TODO
+
     public final ArrayList<String> getNameList() { return new ArrayList<>(nameList); }
 
     public final String getTableName() { return tableName; }

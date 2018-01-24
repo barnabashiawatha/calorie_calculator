@@ -112,6 +112,14 @@ public class DBContainer {
         }
     }
 
+    //TODO
+    public final void updateLib(DietContainer dc, String item, float protein, float fat, float carbohydrates) {
+       addToLib(item, protein, fat, carbohydrates);
+       DietContainer newDc = new DietContainer();
+       showLib(newDc);
+       dc = newDc;
+    }
+
     /**
      * Deletes an item from a library.
      * @param item - an item of a library to delete.

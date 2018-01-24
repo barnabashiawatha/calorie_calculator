@@ -51,6 +51,22 @@ public class CommandAction {
         TableCreator.createLib(lib);
     }
 
+    //TODO
+    public static void updateLib(DietContainer lib, String item, float protein, float fat, float carbohydrates)  {
+        DBContainer dbc = new DBContainer();
+        dbc.open();
+        dbc.updateLib(lib, item, protein, fat, carbohydrates);
+        dbc.close();
+    }
+
+    //TODO
+    public static void fillLibContainer(DietContainer lib) {
+        DBContainer dbc = new DBContainer();
+        dbc.open();
+        dbc.showLib(lib);
+        dbc.close();
+    }
+
     /**
      * Deletes an item from a library.
      * @param item - an item of a library to delete.
